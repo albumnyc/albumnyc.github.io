@@ -1,18 +1,81 @@
---- layout: default description: "你来到了没有知识的荒原 🙊" header-img:
-"img/404-bg.jpg" permalink: /404.html ---
 
 <!-- Page Header -->
+<style>
+    @keyframes ran {
+                from {
+                    backgroud-position: 0 0;
+                }
+                to {
+                    background-position: 2000px 0;
+                }
+            }
+.descs{
+  font-size: 14px;
+  letter-spacing: 3px;
+  line-height: 20px;
+  background: linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);
+  background-clip: text;
+  animation: ran 10s linear infinite;
+  color: rgba(0,0,0,0.6);
+  font-style: italic;
+  -webkit-text-stroke: #bed5f5;
+  text-align: center;
+  margin-top: 100px;
+}
+.tittle{
+  margin: 0 auto;
+    font-size: 30px;
+    font-weight: 700;
+    background: url(http://www.cnhubei.com/xwzt/2015/2015snjlx/snjfj/201509/W020150930775925767248.jpg) no-repeat center;
+    /*文字样式*/
+    text-align: center;
+    /*图片文字样式*/
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+</style>
 <header
   class="intro-header"
   style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')"
 >
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="site-heading" id="tag-heading">
-          <h1>404</h1>
-          <span class="subheading">{{ page.description }}</span>
+    <!--
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="site-heading" id="tag-heading">
+            <h1>404</h1>
+            <span class="subheading">{{ page.description }}</span>
+          </div>
         </div>
+      </div>
+    -->
+    <div class="descs">
+      <p class="">
+        Hey，我是<h2 style="display: inline-block;text-indent: 20px">义超(NYC)</h2>
+       <br> 一只前端程序猿，19届本科毕业生。大三开始自学前端
+             <br> 秋招拿到了大多数互联网公司的sp类或ssp类offer,
+            <br> 其中超过35w的有快手，滴滴，腾讯
+            <br> 对技术热情，喜欢各种新的挑战，
+            <br> 虽然我很渺小，但是我也想有诗和远方，欢迎大家的支持，或者职位推荐～
+       </span> 
+      </p>
+    </div>
+    <div class="tittle">
+      <div class="git">
+         <span>
+           这是我的git地址:
+         </span>
+         <a href="https://github.com/albumnyc" target="_blank">
+            https://github.com/albumnyc (此人纯属虚构的博客)
+         </a>
+      </div>
+      <div class="wechat">
+        <span>
+          这是我的微信：
+        </span>
+        <span>
+            1609240765
+        </span>
       </div>
     </div>
   </div>
@@ -20,117 +83,4 @@
 
 <script>
   document.body.classList.add("page-fullscreen");
-
-  // while (line = readline()) {
-  //     function MinCoinChange(coins) {
-  //         var coins = coins;
-  //         return makeChange = function(amount) {
-  //             var me = this;
-  //             if (!amount) {
-  //                 return [];
-  //             }
-  //             var min = [],
-  //                 newMin, newAmount;
-  //             for (var i = 0; i < coins.length; i++) {
-  //                 var coin = coins[i];
-  //                 newAmount = amount - coin;
-  //                 if (newAmount >= 0) {
-  //                     newMin = me.makeChange(newAmount);
-  //                 }
-  //                 if (newAmount >= 0 && (newMin.length < min.length - 1 || !min.length) && (newMin.length || !newAmount)) {
-  //                     min = [coin].concat(newMin);
-  //                     //console.log('new Min' + min + 'for ' + amount);
-  //                 }
-  //             }
-  //             return min;
-  //         }
-  //     }
-  //     var m = MinCoinChange([1, 2, 3, 4, 5])(line);
-  //     print(m.length);
-  // }
-
-  // function MinCoinChange(coins) {
-  //     var coins = coins;
-  //     return makeChange = function(amount) {
-  //         var me = this;
-  //         if (!amount) {
-  //             return [];
-  //         }
-  //         var min = [],
-  //             newMin, newAmount;
-  //         for (var i = 0; i < coins.length; i++) {
-  //             var coin = coins[i];
-  //             newAmount = amount - coin;
-  //             if (newAmount >= 0) {
-  //                 newMin = me.makeChange(newAmount);
-  //             }
-  //             if (newAmount >= 0 && (newMin.length < min.length - 1 || !min.length) && (newMin.length || !newAmount)) {
-  //                 min = [coin].concat(newMin);
-  //                 //console.log('new Min' + min + 'for ' + amount);
-  //             }
-  //         }
-  //         return min;
-  //     }
-  // }
-
-  // function change(num) {
-  //     let n = 0;
-  //     if (num < 5) {
-  //         return 1;
-  //     } else {
-  //         n = Math.floor(num / 5);
-  //         return n + 1;
-  //     }
-  // }
-
-  // // 本题为考试单行多行输入输出规范示例，无需提交，不计分。
-  // function MinCoinChange(coins) {
-  //     var coins = coins;
-  //     var cache = {};
-  //     this.makeChange = function(amount) {
-  //         var me = this;
-  //         if (!amount) {
-  //             return [];
-  //         }
-  //         if (cache[amount]) {
-  //             return cache[amount];
-  //         }
-  //         var min = [],
-  //             newMin, newAmount;
-  //         for (var i = 0; i < coins.length; i++) {
-  //             var coin = coins[i];
-  //             newAmount = amount - coin;
-  //             if (newAmount >= 0) {
-  //                 newMin = me.makeChange(newAmount);
-  //             }
-  //             if (newAmount >= 0 && (newMin.length < min.length - 1 || !min.length) && (newMin.length || !newAmount)) {
-  //                 min = [coin].concat(newMin);
-  //                 //console.log('new Min' + min + 'for ' + amount);
-  //             }
-  //         }
-  //         return (cache[amount] = min);
-  //     }
-  // }
-  // var minCoinChange = new MinCoinChange([1, 2, 3, 4, 5]);
-  // // while(line=readline()){
-  // // var lines = line.split(" ");
-  // // var a = parseInt(lines[0]);
-  // var m = minCoinChange.makeChange(10);
-  // console.log(m);
-  // // print(m.length);
-  // // }
-
-  // var line = "bwbwb";
-  // var lines = line.split("");
-  // const wLen = lines.reduce((a, b) => b == 'w' ? a + 1 : a, 0);
-  // const bLen = lines.length - wLen;
-  // let ret;
-  // if (wLen >= bLen + 1) {
-  //     ret = bLen * 2 + 1;
-  // } else if (wLen == bLen) {
-  //     ret = bLen * 2;
-  // } else if (wLen <= bLen + 1) {
-  //     ret = wLen * 2 + 1;
-  // }
-  // console.log(ret);
 </script>
