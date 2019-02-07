@@ -1,151 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-      * {
-        padding: 0px;
-        margin: 0px;
-      }
-
-      #sss {
-        color: red !important;
-      }
-
-      span {
-        color: aqua;
-      }
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        #sss {
+            color: red !important;
+        }
+        
+        span {
+            color: aqua;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="sss" id="sss"><span> 宋小鸡吧 </span></div>
 
     <script>
-      // const target = {
-      //     obj: {
-      //         num: 1
-      //     },
-      // }
-      // const [num] = target.obj;
-      // var a, b;
-      // var solveMeFirst = (a, b) => a + b;
-      // var lines = ['3 4 2', '5 3 1', 'B 1', 'A 2', "A 2", "A 3"];
-      // // while (line = read_line()) {
-      // //     lines.push(line);
-      // // }
-      // var arr1 = lines[0].split(' ');
-      // var day = arr1[1];
-      // var key = arr1[2];
+        const fibo = {
+            a: 0,
+            b: 1,
+            [Symbol.iterator]() {
+                return {
+                    next() {
+                        [fibo.a, fibo.b] = [fibo.b, fibo.b + fibo.a];
+                        return {
+                            done: false,
+                            value: fibo.b
+                        };
+                    }
+                };
+            }
+        };
+        for (let n of fibo) {
+            if (n > 100) {
+                break;
+            }
+            console.log(n);
+        }
+        for (let n of fibo) {
+            if (n > 100) {
+                break;
+            }
+            console.log(n);
+        }
 
-      // var all = lines[1].split(' ');
+        class Foo {
+            static[Symbol.hasInstance](obj) {
+                console.log(obj);
+                return true;
+            }
+        }
+        console.log({
+                a: 1
+            }
+            instanceof Foo
+        );
 
-      // for (var i = 2; i < day; i++) {
-      //     var arr = lines[i].split(' ');
-      //     if (arr[0] == 'A') {
-      //         all[arr[1]]++;
-      //     } else {
-      //         all[arr[1]]--;
-      //     }
-      // }
-      // var n = all[key - 1];
-      // // console.log(n);
-      // all = all.sort();
-      // var index = all.findIndex((item) => item == n)
-      // console.log(index + 1)
+        const Sss = {
+            [Symbol.toPrimitive](hint) {
+                console.log(hint);
+                switch (hint) {
+                    case "string":
+                        return "sdsa";
+                    case "number":
+                        return "number";
+                    default:
+                        return "default";
+                }
+            }
+        };
+        console.log(+Sss);
+        console.log(`${Sss}`);
 
-      // var n = parseInt(readline());
-      // var ans = 0;
-      // for(var i = 0 ; i < n; i ++){
-
-      // }
-
-      // var lines = [
-      //     'B 1',
-      //     'A 2',
-      //     "A 2",
-      //     "A 3",
-      // "B 2",
-      // "B 2",
-      // "B 2",
-      // "B 2",
-      // "B 2"
-
-      // ];
-      // var arr1 = ['3', '4', '2'];
-      // var all = ['5', '3', '1'];
-      // while (line = read_line()) {
-      //     lines.push(line);
-      // }
-
-      // var lines = [];
-      // var arr1 = read_line().split(' ');
-      // var all = read_line().split(' ');
-      // all = all.map((item) => Number(item))
-      //     // while (line = read_line()) {
-      //     //     lines.push(line);
-      //     // }
-
-      // var day = Number(arr1[1]);
-      // var key = Number(arr1[2]);
-      // for (var i = 0; i < day; i++) {
-
-      //     var arr = lines[i].split(' ');
-      //     if (arr[0] == 'A') {
-      //         all[arr[1] - 1] = Number(all[arr[1] - 1]) + 1;
-      //     } else {
-      //         // console.log(all);
-      //         all[arr[1] - 1] = Number(all[arr[1] - 1]) - 1;
-      //     }
-      // }
-      // var n = all[key - 1];
-      // console.log(all);
-      // console.log(n);
-      // all = all.sort((a, b) => b - a);
-
-      // var index = all.findIndex((item) => item == n)
-      // console.log(index + 1);
-
-      // let allLines = [];
-      // let arr1 = read_line().split(' ');
-      // let all = read_line().split(' ');
-      // all = all.map((item) => Number(item))
-      // while (line = read_line()) {
-      //     allLines.push(line);
-      // }
-
-      // var day = Number(arr1[1]);
-      // var val = Number(arr1[2]);
-      // for (var i = 0; i < day; i++) {
-      //     var arr = allLines[i].split(' ');
-      //     if (arr[0] == 'A') {
-      //         all[arr[1] - 1]++
-      //     } else {
-      //         console.log(all);
-      //         all[arr[1] - 1]--;
-      //     }
-      // }
-      // var n = all[val - 1];
-      // all = all.sort();
-      // all = all.reverse();
-      // var index = all.findIndex(function(item) {
-      //     return item == n;
-      // })
-      // print(++index);
-
-      function unique1(arr) {
-        var arr1 = [];
-        arr.map((item, index) => {
-          arr1.indexOf(item) == -1 ? arr1.push(item) : "";
-        });
-        var result = arr1.sort((a, b) => a - b);
-        return result;
-      }
-      var arr = [10, 1, 3, 5, 5, 8];
-      console.log(unique1(arr));
+        class Bar {
+            get[Symbol.toStringTag]() {
+                return "Bar";
+            }
+        }
+        console.log(new Bar().toString()); // -> [object Bar]
     </script>
-  </body>
+</body>
+
 </html>
