@@ -88,6 +88,61 @@
             }
         }
         console.log(new Bar().toString()); // -> [object Bar]
+
+        const combineReducer = reducers => {
+            return (state = {}, action) => {
+                return Object.keys(reducers).reduce((nextState, key) => {
+                    nextState[key] = reducers[key](state[key], action);
+                });
+                return nextState;
+            };
+        };
+        const a = () => 1;
+        const b = () => 2;
+        console.log(combineReducer([a, b]));
+
+        const addPromiseSupportTodispatch = store => {
+            const rawDispatch = store.dispatch;
+            return action => {
+                if (typeof action.then === "function") {
+                    return action.then(rawDispatch);
+                }
+            };
+        };
+
+        function applyMiddleware(...middlewares) {
+            return next => (reducer, intitalState) => {
+                const store = next(reducer, intitalState);
+                const dispatch = store.dispatch;
+                const chain = [];
+                const middlewareAPI = {
+                    getState: store.getState,
+                    dispatch: action => dispatch(action)
+                };
+                chain = middlewares.map(middleware => middleware(middlewareAPI));
+                dispatch = compose(
+                    ...chain,
+                    store.dispatch
+                );
+                return {
+                    ...store,
+                    dispatch
+                };
+            };
+        }
+
+        Promise.resolve().then(() => console.log(2));
+        new Promise((resolve, reject) => {
+            resolve();
+            console.log(3);
+        }).then(() => console.log(4));
+        setTimeout(() => {
+            Promise.resolve().then(() => console.log(5));
+            setTimeout(() => console.log(7), 0);
+        }, 0);
+        setTimeout(() => console.log(6), 0);
+
+        // 3  2  4  5 6 7
     </script>
 </body>
 
