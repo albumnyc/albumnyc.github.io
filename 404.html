@@ -1,45 +1,43 @@
-
 <!-- Page Header -->
 <style>
     @keyframes ran {
-                from {
-                    backgroud-position: 0 0;
-                }
-                to {
-                    background-position: 2000px 0;
-                }
-            }
-.descs{
-  font-size: 14px;
-  letter-spacing: 3px;
-  line-height: 20px;
-  background: linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);
-  background-clip: text;
-  animation: ran 10s linear infinite;
-  color: rgba(0,0,0,0.6);
-  font-style: italic;
-  -webkit-text-stroke: #bed5f5;
-  text-align: center;
-  margin-top: 100px;
-}
-.tittle{
-  margin: 0 auto;
-    font-size: 30px;
-    font-weight: 700;
-    background: url(http://www.cnhubei.com/xwzt/2015/2015snjlx/snjfj/201509/W020150930775925767248.jpg) no-repeat center;
-    /*文字样式*/
-    text-align: center;
-    /*图片文字样式*/
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-}
+        from {
+            backgroud-position: 0 0;
+        }
+        to {
+            background-position: 2000px 0;
+        }
+    }
+    
+    .descs {
+        font-size: 14px;
+        letter-spacing: 3px;
+        line-height: 20px;
+        background: linear-gradient(45deg, #70f7fe, #fbd7c6, #fdefac, #bfb5dd, #bed5f5);
+        background-clip: text;
+        animation: ran 10s linear infinite;
+        color: rgba(0, 0, 0, 0.6);
+        font-style: italic;
+        -webkit-text-stroke: #bed5f5;
+        text-align: center;
+        margin-top: 100px;
+    }
+    
+    .tittle {
+        margin: 0 auto;
+        font-size: 30px;
+        font-weight: 700;
+        background: url(http://www.cnhubei.com/xwzt/2015/2015snjlx/snjfj/201509/W020150930775925767248.jpg) no-repeat center;
+        /*文字样式*/
+        text-align: center;
+        /*图片文字样式*/
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
 </style>
-<header
-  class="intro-header"
-  style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')"
->
-  <div class="container">
-    <!--
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <!--
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <div class="site-heading" id="tag-heading">
@@ -49,38 +47,38 @@
         </div>
       </div>
     -->
-    <div class="descs">
-      <p class="">
-        Hey，我是<h2 style="display: inline-block;text-indent: 20px">义超(NYC)</h2>
-       <br> 一只前端程序猿，19届本科毕业生。大三开始自学前端
-             <br> 秋招拿到了大多数互联网公司的sp类或ssp类offer,
-            <br> 其中超过35w的有快手，滴滴，腾讯
-            <br> 对技术热情，喜欢各种新的挑战，
-            <br> 虽然我很渺小，但是我也想有诗和远方，欢迎大家的支持，或者职位推荐～
-       </span> 
-      </p>
-    </div>
-    <div class="tittle">
-      <div class="git">
-         <span>
+        <div class="descs">
+            <p class="">
+                Hey，我是
+                <h2 style="display: inline-block;text-indent: 20px">义超(NYC)</h2>
+                <br> 一只前端程序猿，19届本科毕业生。大三开始自学前端
+                <br> 秋招拿到了大多数互联网公司的sp类或ssp类offer,
+                <br> 对技术热情，喜欢各种新的挑战，
+                <br> 虽然我很渺小，但是我也想有诗和远方，欢迎大家的支持，或者职位推荐～
+                </span>
+            </p>
+        </div>
+        <div class="tittle">
+            <div class="git">
+                <span>
            这是我的git地址:
          </span>
-         <a href="https://github.com/albumnyc" target="_blank">
+                <a href="https://github.com/albumnyc" target="_blank">
             https://github.com/albumnyc (此人纯属虚构的博客)
          </a>
-      </div>
-      <div class="wechat">
-        <span>
+            </div>
+            <div class="wechat">
+                <span>
           这是我的微信：
         </span>
-        <span>
+                <span>
             1609240765
         </span>
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </header>
 
 <script>
-  document.body.classList.add("page-fullscreen");
+    document.body.classList.add("page-fullscreen");
 </script>
